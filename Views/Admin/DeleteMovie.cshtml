@@ -1,0 +1,53 @@
+@model CineScope.Models.Movie
+
+@{
+    ViewData["Title"] = "DeleteMovie";
+}
+<div class="adminPage">
+    <a asp-action="Index" style="text-decoration: none"><h1 class="pageHeading blueText">Admin</h1></a>
+    <h2 class="subPageHeading">Ta bort</h2>
+
+    <h4 class="subPageHeading">Är du säker på att du vill ta bort den här filmen</h4>
+    <div>
+        <hr />
+        <dl class="row">
+            <dt class = "col-sm-2">Title</dt>
+            <dd class = "col-sm-10">    
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class = "col-sm-2">Genre</dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Genre)
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class = "col-sm-2">Release datum</dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.ReleaseDate)
+            </dd>
+        </dl>
+    
+        <dl class="row">
+            <dt class = "col-sm-2">Beskrivning</dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class = "col-sm-2">Land</dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.FromCountry)
+            </dd>
+        </dl>
+        
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            <br/>
+            <br />
+            <a asp-action="Index">Tillbaka till filmlistan</a>
+        </form>
+    </div>
+</div>

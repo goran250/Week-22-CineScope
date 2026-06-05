@@ -1,0 +1,394 @@
+:root {
+    --text-colour: #000;
+    --bg-color: #fff;
+    --border-color: #aaa;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-colour: #fff;
+        --bg-color: #222;
+    }
+}
+
+html {
+  font-size: 16px;
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+    color: var(--bs-secondary-color);
+    text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+    text-align: start;
+}
+
+.textStart {
+    width: 35%;
+    float: left;
+    margin-top: 28px;
+}
+
+.imgStart {
+    float: right;
+    width: 65%;
+    height: auto;
+    margin-top: 30px;
+}
+
+.pageHeading {
+    padding-top: 10px;
+
+    text-decoration: none;
+}
+
+.subPageHeading {
+    padding-top: 10px;
+
+}
+
+.blueText {
+    color: #1761ce;
+}
+
+.adminLink {
+    margin-right: 50px;
+}
+
+.button {
+    font-size: 15px;
+    border-radius: 6px;
+    padding: 5px 10px;
+    margin: 0px 3px;
+    border: none;
+    background-color: #0d6efd;
+    color: white;
+}
+
+.button.remove {
+    background-color: #d20000;
+}
+
+.button.green {
+    background-color: green;
+}
+
+.button-row {
+    clear: both;
+    position: relative;
+    top: -220px;
+    width: 100%;
+}
+
+.movieCard {
+    display: block;
+    float: left;
+    width: 33%;
+    height: 385px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.movieCard img {
+    float: left;
+    width: 100%;
+    min-width: 250px;
+    margin-bottom: 15px;
+}
+
+.detailsImg {
+    max-width: 800px;
+    margin-bottom: 30px;
+}
+
+.textStart {
+    padding-right: 15px;
+}
+
+.searchInput {
+    padding: 4px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
+
+#genrerSelect {
+    padding: 4px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px
+}
+
+.slideshow-container {
+    max-width: 1030px;
+    margin-left: 55px;
+    margin-right: 55px;
+}
+
+.arrowButton {
+    border: none;
+    background-color: #eee;
+}
+
+.arrowButton img {
+    width: 40px;
+    height: auto;
+}
+
+.arrowButton.right {
+    float: right;
+}
+
+.visible {
+    display: block !important;
+}
+
+.hidden {
+    display: none;
+}
+
+.form-group {
+    margin: 20px 0;
+}
+
+.form-control {
+    border: var(--border-color) solid 1px;
+}
+
+tbody, td, tfoot, th, thead, tr {
+    border-color: var(--border-color);
+}
+
+
+.desriptionTR td {
+    border-top-color: #fff;
+}
+
+hr {
+    margin: 2rem 0;
+}
+.table thead tr th {
+    background-color: #eee;
+}
+
+.table.movieTable thead tr {
+    border-top: var(--border-color) solid 1px;
+    background-color: #eee;
+}
+
+.table td {
+    background-color: #eee;
+}
+
+.table.movieTable td {
+    padding-top: 25px;
+    background-color: #eee;
+    color: var(--text-colour);
+}
+
+.table td.paddingTop {
+    padding-top: 25px;
+}
+
+.movieDetails .col-sm-2 {
+    width: 22% !important;
+}
+
+.movieDetails .col-sm-10 {
+    width: 60% !important;
+}
+.contactUsForm {
+    max-width: 400px;
+}
+
+.adminPage, .homePage{
+    padding: 10px 30px 20px 30px;
+}
+
+.homeIndex .searchGenrerBox {
+    padding: 20px 20px 15px;
+}
+
+.adminIndex {
+    padding: 0 25px;
+}
+
+.adminIndex .searchGenrerBox {
+    padding: 0 0 25px;
+}
+
+.homeIndex .searchForm {
+    display: inline;
+    margin-left: 10px;
+}
+
+.homeIndex .genrerSelectForm {
+    display: inline;
+    margin-left: 40px;
+}
+
+.adminIndex .searchForm {
+    display: inline;
+    margin-left: 60px;
+}
+
+.adminIndex .genrerSelectForm {
+    display: inline;
+    margin-left: 40px;
+}
+
+
+@media (min-width: 576px) {
+    .actorDetails .col-sm-2 {
+        width: 12% !important;
+    }
+
+    .actorDetails .col-sm-10 {
+        width: 60% !important;
+    }
+}
+
+@media (max-width: 1000px) {
+    .button-row {
+        top: -180px;
+    }
+
+    .searchGenrerBox {
+        padding-top: 20px !important;
+        clear: both;
+    }
+
+    .adminIndex .searchForm {
+        margin-left: 0px;
+    }
+}
+
+@media (max-width: 870px) {
+    .movieDetails .col-sm-2 {
+        width: 30% !important;
+    }
+
+    .movieDetails .col-sm-10 {
+        width: 70% !important;
+    }
+
+        .movieDetails .col-sm-10.description {
+            width: 80% !important;
+        }
+
+    .button-row {
+        top: -140px;
+    }
+
+    .movieCard {
+        width: 50%;
+    }
+}
+
+@media (max-width: 840px) {
+    .imgStart {
+        width: 100%;
+    }
+
+    .textStart {
+        clear: both;
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 775px) {
+    .table td.paddingTop {
+        padding-top: 16px;
+    }
+
+    .table td.paddingTop .button {
+        margin-bottom: 8px;
+    }
+}
+
+@media (max-width: 600px) {
+    .adminIndex .searchForm, .adminIndex .genrerSelectForm {
+        display: block;
+        margin-left: 0px;
+        margin-top: 20px;
+    }
+
+    .homeIndex .searchForm {
+        display: block;
+        margin-left: 10px;
+        margin-top: -10px;
+    }
+
+    .homeIndex .genrerSelectForm {
+        display: block;
+        margin-left: 10px;
+        margin-top: 20px;
+    }
+}
+
+
+@media (max-width: 576px) {
+    ul.navbar-nav {
+        width: 200px;
+        float: right;
+        background: #222;
+        padding: 20px 0 15px 15px;
+    }
+
+    .movieDetails .col-sm-10.description {
+        width: 100% !important;
+    }
+
+    .movieDetails .col-sm-10.actors {
+        width: 100% !important;
+    }
+
+    .movieCard {
+        width: 100%;
+    }
+
+    .adminIndex {
+        padding: 0;
+    }
+
+    .adminPage, .homePage {
+        padding: 10px 0 20px 0;
+    }
+}
+
+
+    /* Define default colours 
+--text-colour: #000;
+--bg-color: #fff;
+--border-color: #bbb;
+}
+*/
+    /* Apply default colours */
+    /*
+body {
+    color: var(--text-colour);
+    background: var(--bg-color);
+}
+*/
+    /* Update colours for dark mode */
+    /*
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-colour: #fff;
+        --bg-color: #000;
+    }
+}
+*/

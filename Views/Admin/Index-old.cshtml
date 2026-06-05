@@ -1,0 +1,54 @@
+@model IEnumerable<CineScope.Models.Movie>
+
+@{
+    ViewData["Title"] = "IndexAdmin";
+}
+
+<h1 class="pageHeading">Admin</h1>
+
+<p>
+    <a asp-action="CreateMovie">Lägg till en ny film</a>
+</p>
+<p>
+    <a asp-action="AllActors">Alla skådespelare</a>
+</p>
+<div class="divTable">
+    <div class="header">
+        <span style="width: 80px;"></span>
+        <span class="longSpan">Titel</span>
+        <span class="longSpan">Genre</span>
+        <span class="mediumSpan">Release datum</span>
+        <span>Rating</span>
+        <span>Land</span>    
+    </div>
+    @foreach (var item in Model) 
+    {   
+        <div class="row">
+            <span style="padding-top: 0; width: 80px;">
+                <img src="~/images/@item.PosterFilename" alt="Poster" width="60px"/>
+            </span>
+            <span class="longSpan">
+                @Html.DisplayFor(model => item.Title)
+            </span>
+            <span class="longSpan">
+                @Html.DisplayFor(model => item.Genre)
+            </span>
+            <span class="mediumSpan">
+                @item.ReleaseDate.ToShortDateString()
+            </span>
+            <span>
+                <img src="~/images/star.webp" width="16px" height="16px" style="margin-top: 4px;" />
+                &nbsp;@Html.DisplayFor(model => item.Rating)
+            </span>               
+            <span>
+                @Html.DisplayFor(model => item.FromCountry)
+            </span>
+            <span style="width: 250px;">
+                <a asp-action="EditMovie" asp-route-id="@item.Id"><button class="button">Ändra</button></a>
+                <a asp-action="MovieDetails" asp-route-id="@item.Id"><button class="button">Detaljer</button></a>
+                <a asp-action="DeleteMovie" asp-route-id="@item.Id"><button class="button remove">Ta bort</button></a>
+            </span>
+            <hr style="margin: 10px 0 0;" />
+        </div>
+    }           
+</div>

@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Contact us";
+}
+<div class="homePage">
+<h1>Kontakta oss</h1>
+    <p>Kontakta oss om du har frågor om våra filmer eller vill tipsa oss om nya filmer</p>
+
+    <form asp-action="ContactUs" class="contactUsForm">
+        <div class="form-group">
+            <label for="nameInput">Namn <span style="color: red;">*</span></label>
+            <input type="text" name="nameInput" class="form-control" placeholder="Ange ditt namn" required                                                                          />
+        </div>
+        
+        <div class="form-group">
+            <label for="emailInput">Epostadress <span style="color: red;">*</span></label>
+            <input type="Email" name="emailInput" class="form-control"  placeholder="Ange din epostadress" required />
+        </div>
+        
+        <div class="form-group">
+            <label for="phoneNbrInput">Mobilnr</label>
+            <input type="text" name="phoneNbrInput" class="form-control" placeholder="Ange ditt mobilnr" />
+        </div>
+
+        <div class="form-group">
+            <label for="messageInput">Meddelande</label>
+            <textarea name="messageInput" class="form-control" placeholder="Skriv ditt meddelande" />
+        </div>
+        
+        <div class="form-group">
+            <button class="button" type="submit">Skicka</button>
+        </div>
+    </form>
+</div>

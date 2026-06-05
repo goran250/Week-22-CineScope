@@ -1,0 +1,41 @@
+@model IEnumerable<CineScope.Models.Actor>
+
+@{
+    ViewData["Title"] = "AllActors";
+}
+
+<div class="homePage">
+    <a asp-action="Index" style="text-decoration: none"><h1 class="pageHeading blueText">Admin</h1></a>
+    <h2 class="subPageHeading">Alla skådespelare</h2>
+
+    <p>
+        Alla dessa skådespelare förekommer i filmerna i systemet
+    </p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Namn</th>
+                <th>Land</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) {
+                <tr>
+                    <td><img src="~/images/@item.PictureFilename" alt="Poster" width="60" /></td>
+                    <td style="padding-top: 25px;">
+                        @Html.DisplayFor(model => item.Name)
+                    </td>
+                    <td style="padding-top: 25px;">
+                        @Html.DisplayFor(model => item.Country)
+                    </td>
+                    <td class="paddingTop">              
+                        <a asp-action="ActorDetails" asp-route-id="@item.Id"><button class="button">Detaljer</button></a>              
+                    </td>
+                </tr>
+        }
+        </tbody>
+    </table>
+</div>

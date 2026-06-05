@@ -1,0 +1,123 @@
+﻿@model CineScope.Models.ViewModels.HomeIndex
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="homeIndex">
+    <div class="slideshow-container">
+   
+        <div id="frame1" class="hidden visible">
+            <img src="~/images/sällskapsresan-wide.webp" class="imgStart" />
+            <div class="textStart">
+                <h2>Sällskapsresan</h2>
+                <p><b>-eller finns det svenskt kaffe på grisfesten?</b></p>
+                <p>
+                    Sällskapsresan, eller Finns det svenskt kaffe på grisfesten,
+                    är en svensk komedifilm från 1980 i regi av Lasse Åberg och Peter Hald. I huvudrollerna ses Lasse Åberg och
+                    Jon Skolmen. Det är den första filmen i en serie om och med antihjälten Stig-Helmer Olsson.
+                </p>
+                <p><b><span style="margin-right: 20px;">1980</span>Komedi</b><p/>
+                    <a asp-action="MovieDetails" asp-route-id="1"><button class="button green">Läs mer</button></a>
+            </div>
+        </div>    
+  
+
+        <div id="frame2" class="hidden">
+            <img src="~/images/snowroller-wide.webp" class="imgStart" />
+            <div class="textStart">
+                <h2>Snowroller</h2>
+                <p><b>Sällskapsresan 2</b></p>
+                <p>
+                   Sällskapsresan 2 – Snowroller är en svensk komedifilm från 1985 i regi av Lasse Åberg och Peter Hald. 
+                   I huvudrollerna ses Lasse Åberg och Jon Skolmen. Stig-Helmer Olsson reser tillsammans med Ole Bramserud
+                   till schweiziska Alperna för skidsemester, i orten Kirchberg. På resan får de sällskap med ett antal ...
+                </p>
+                <p><b><span style="margin-right: 20px;">1985</span>Komedi</b></p>
+                <a asp-action="MovieDetails" asp-route-id="2"><button class="button green">Läs mer</button></a>
+             </div>           
+        </div>       
+
+        <div id="frame3" class="hidden">
+            <img src="~/images/jurassic-park-wide.webp" class="imgStart" />
+            <div class="textStart">
+                <h2>Jurassic park</h2>
+                <p>
+                    Jurassic Park är en amerikansk science fiction-äventyrsfilm från 1993, regisserad av Steven Spielberg
+                    med manus skrivet av Michael Crichton och David Koepp, baserad på Crichtons roman Urtidsparken från 1990. 
+                    Filmen, med Sam Neill, Laura Dern, Jeff Goldblum och Richard Attenborough i huvudrollerna, ...
+                </p>
+                <p><b><span style="margin-right: 20px;">1985</span>Science Fiction - Äventyr</b><p />
+                <a asp-action="MovieDetails" asp-route-id="3"><button class="button green">Läs mer</button></a>
+            </div>
+        </div>
+
+        <div id="frame4" class="hidden">
+            <img src="~/images/avatar-1-bred.webp" class="imgStart" />
+            <div class="textStart">
+                <h2>Avatar</h2>
+                <p>
+                    Avatar är en amerikansk science fiction-film, regisserad och producerad James Cameron.Året är 2154 och människan
+                    har tvingats kolonisera och exploatera en ny planet (måne) för att inte gå under på den gamla. Med hjälp av 
+                    gigantiska ”hell trucks”, förvillande lika de väldiga maskiner som i dagbrott bryter brunkol i Tyskland och de 
+                    jättelastbilar som ...
+                </p>
+                <p><b><span style="margin-right: 20px;">2009</span>Science Fiction</b><p />
+                <a asp-action="MovieDetails" asp-route-id="12"><button class="button green">Läs mer</button></a>
+            </div>            
+        </div>        
+    </div>
+    
+    <div class="button-row">
+        <button onclick="changeFrame(-1)" class="arrowButton"><img src="~/images/leftArrow.webp" /></button>
+        <button onclick="changeFrame(1)" class="arrowButton right"><img src="~/images/rightArrow.webp" /></button>
+    </div>
+
+    <hr style="margin: -20px 0 20px 20px;" />
+
+    <div class="searchGenrerBox">
+        <form method="get" class="searchForm">
+            <input asp-action="Index" placeholder="Sök efter titel..." name="searchValue" class="searchInput" />
+        </form>
+
+        <form method="get" class="genrerSelectForm">
+            <select id="genrerSelect" asp-for="genre" asp-items="Model.genrerListItems"></select>
+            <input type="submit" value="Skicka" class="button" />
+        </form>
+    </div>
+
+    <div style="width: 100%; float: left; margin-bottom: 60px; padding-left: 12px; background-color: #eee;">
+        @foreach (Movie movie in Model.movies)
+        {           
+            <div class="movieCard">
+                <img src="~/images/@movie.PosterFilenameWide"/>
+                <h4>@movie.Title</h4>
+                <p><b>@movie.SubTitle</b></p>
+                <p><span style="margin-right: 20px;">@movie.ReleaseDate.Year</span>@movie.Genre<p />
+                <a asp-action="MovieDetails" asp-route-id="@movie.Id"><button class="button green">Läs mer</button></a>
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+    document.getElementById("mainContainer").classList.add("minimalPadding");
+
+    const frames = ["frame1", "frame2", "frame3", "frame4"];
+    let currentIndex = 0;
+
+    function changeFrame(direction) {
+        oldIndex = currentIndex;
+        currentIndex += direction;
+
+        // Gör så att frames loopar runt (både framåt och bakåt)
+        if (currentIndex >= frames.length) {
+            currentIndex = 0;
+        }
+        else if (currentIndex < 0) {
+            currentIndex = frames.length - 1;
+        }
+
+        document.getElementById(frames[oldIndex]).classList.remove("visible");
+        document.getElementById(frames[currentIndex]).classList.add("visible");
+    }
+</script>

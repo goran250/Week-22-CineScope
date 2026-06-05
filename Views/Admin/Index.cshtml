@@ -1,0 +1,73 @@
+@model CineScope.Models.ViewModels.AdminCrud
+
+@{
+    ViewData["Title"] = "IndexAdmin";
+}
+<div class="adminIndex">
+    <h1 class="pageHeading blueText">Admin</h1>
+
+    <p>Här kan du hantera alla filmer i systemet.</p>
+
+    <div style="float: left;">
+        <a asp-action="CreateMovie"><button class="button">Lägg till en ny film</button></a>
+        <a asp-action="AllActors"><button style="padding: 5px 14px" class="button green">Alla skådespelare</button></a>
+    </div>
+
+    <div class="searchGenrerBox">       
+        <form method="get" class="searchForm">
+            <input asp-action="Index" placeholder="Sök efter titel..." name="searchValue" class="searchInput" />
+        </form>
+
+        <form method="get" class="genrerSelectForm">
+            <select id="genrerSelect" asp-for="genre" asp-items="Model.genrerListItems"></select>   
+            <input type="submit" value="Skicka" class="button" />
+        </form>
+    </div>
+
+    <table class="table movieTable">
+        <thead>
+            <tr>
+                <th style="width: 75px;">
+                <th>Titel</th>
+                <th>Genre</th>
+                <th>Release datum</th>
+                <th>Rating</th>
+                <th>Land</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model.movies) 
+            {   
+                <tr>
+                    <td style="padding-top: 10px; width: 75px;">
+                        <img src="~/images/@item.PosterFilename" alt="Poster" width="60px"/>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item.Genre)
+                    </td>
+                    <td>
+                        @item.ReleaseDate.ToShortDateString()
+                    </td>
+                    <td>
+                        <img src="~/images/star.webp" width="16px" height="16px"/>
+                        &nbsp;@Html.DisplayFor(model => item.Rating)
+                    </td>               
+                    <td>
+                        @Html.DisplayFor(model => item.FromCountry)
+                    </td>
+                    <td style="width: 250px;" class="paddingTop">
+                        <a asp-action="EditMovie" asp-route-id="@item.Id"><button class="button">Ändra</button></a>
+                        <a asp-action="MovieDetails" asp-route-id="@item.Id"><button class="button">Detaljer</button></a>
+                        <a asp-action="DeleteMovie" asp-route-id="@item.Id"><button class="button remove">Ta bort</button></a>
+                    </td>            
+                </tr>
+            }
+         </tbody>        
+     </table>
+    </div>
+

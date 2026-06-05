@@ -1,0 +1,43 @@
+@model CineScope.Models.Actor
+
+@{
+    ViewData["Title"] = "CreateActor";
+}
+
+<div class="adminPage">
+    <a asp-action="Index" style="text-decoration: none"><h1 class="pageHeading blueText">Admin</h1></a>
+    <h2 class="subpageHeading">Lägg till en ny skådespelare</h2>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="CreateActor">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label">Namn</label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Country" class="control-label">Land</label>
+                    <input asp-for="Country" class="form-control" />
+                    <span asp-validation-for="Country" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="PictureFilename">Bildfilnamn</label>
+                    <input asp-for="PictureFilename" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Skapa" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="AllActors">Tillbaka till skådespelarlista</a>
+    </div>
+</div>

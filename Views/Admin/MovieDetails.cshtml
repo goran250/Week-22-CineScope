@@ -1,0 +1,105 @@
+@model CineScope.Models.ViewModels.AdminCrud
+
+@{
+    ViewData["Title"] = "MovieDetails";
+}
+
+<div class="adminPage">
+    <a asp-action="Index" style="text-decoration: none"><h1 class="pageHeading blueText">Admin</h1></a>
+    <h2 class="subPageHeading">Detaljer för <span class="blueText">@Model.movie.Title</span></h2>
+
+    <div class="movieDetails">
+        <hr />
+        <dl class="row">
+            <dt class = "col-sm-2">Titel:</dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.movie.Title)
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">Undertitel:</dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.movie.SubTitle)
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class = "col-sm-2">Genre:</dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.movie.Genre)
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class = "col-sm-2">Release datum:</dt>
+            <dd class = "col-sm-10">
+                @Model.movie.ReleaseDate.ToShortDateString()
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class = "col-sm-2">Rating:</dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.movie.Rating)
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class = "col-sm-2">Speltid:</dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.movie.Duration)
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">Beskrivning:</dt>
+            <dd class="col-sm-10 description">
+                @Html.DisplayFor(model => model.movie.Description)
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">Filnamn för kvadratisk posterbild:</dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.movie.PosterFilename)
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">Filnamn för bred posterbild:</dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.movie.PosterFilenameWide)
+            </dd>
+         </dl>
+        <dl class="row">
+            <dt class = "col-sm-2">Land:</dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.movie.FromCountry)
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class = "col-sm-2">Regissör:</dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.movie.Director)
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class = "col-sm-2">Skådespelare:</dt>
+            <dd class = "col-sm-10 actors">         
+                @foreach (Actor actor in Model.actors)
+                {
+                    <span style="margin-right: 5px;">@actor.Name</span>
+                }
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class = "col-sm-2">Språk:</dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.movie.Language)
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">Budget:</dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.movie.Budget)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="EditMovie" asp-route-id="@Model.movie.Id"><button class="button">Ändra</button></a>
+        <a asp-action="Index"><button class="button green">Tillbaka till filmlistan</button></a>
+    </div>
+</div>

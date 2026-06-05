@@ -1,0 +1,95 @@
+@model CineScope.Models.ViewModels.HomeMovieDetails
+
+@{
+    ViewData["Title"] = "MovieDetails";
+}
+<div style="padding: 10px 30px 20px 30px">
+    <h1 class="pageHeading">Detaljer</h1>
+
+    <div class="movieDetails">
+        <hr />
+
+        <img src="~/images/@Model.movie.PosterFilenameWide" class="detailsImg" />
+
+        <dl class="row">
+            <dt class = "col-sm-2">Titel:</dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.movie.Title)
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">Undertitel:</dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.movie.SubTitle)
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class = "col-sm-2">Genre:</dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.movie.Genre)
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">Beskrivning:</dt>
+            <dd class="col-sm-10 description">
+                @Html.DisplayFor(model => model.movie.Description)
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class = "col-sm-2">Release datum:</dt>
+            <dd class = "col-sm-10">
+                @Model.movie.ReleaseDate.ToShortDateString()
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class = "col-sm-2">Rating:</dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.movie.Rating)
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class = "col-sm-2">Speltid:</dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.movie.Duration)
+            </dd>
+        </dl>
+  
+        <dl class="row">
+            <dt class = "col-sm-2">Land:</dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.movie.FromCountry)
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class = "col-sm-2">Regissör:</dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.movie.Director)
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class = "col-sm-2">Skådespelare:</dt>
+            <dd class = "col-sm-10 actors">         
+                @foreach (Actor actor in Model.actors)
+                {
+                    <span style="margin-right: 5px;">@actor.Name</span>
+                }
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class = "col-sm-2">Språk:</dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.movie.Language)
+            </dd>
+        </dl>
+        <dl class="row">
+            <dt class="col-sm-2">Budget:</dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.movie.Budget)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Index"><button class="button green">Tillbaka till filmlistan</button></a>
+    </div>
+</div>
+
