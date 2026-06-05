@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CineScope.Models
 {
@@ -26,14 +27,15 @@ namespace CineScope.Models
         public string FromCountry { get; set; }
         [MaxLength(100)]
         public string? Director { get; set; }
-
-        public List<Actor>? Actors;
-
-        public List<int>? ActorIds;
-
         [MaxLength(50)]
-        public string? Language { get; set; }        
+        public string? Language { get; set; }
         public string? Budget { get; set; }
+        /**
+        [NotMapped]
+        public List<Actor>? Actors;        
+        [NotMapped]
+        public List<int>? ActorIds;
+        */
        
         public Movie() {}
     }

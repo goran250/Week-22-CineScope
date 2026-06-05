@@ -9,103 +9,109 @@
     <h2 class="subPageHeading">Lägg till en ny film</h2>
 
     <hr />
-    <div class="row">
-        <div class="col-md-4">
-            <form asp-action="CreateMovie">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                <div class="form-group">
-                    <label asp-for="movie.Title" class="control-label">Titel</label>
-                    <input asp-for="movie.Title" class="form-control" />
-                    <span asp-validation-for="movie.Title" class="text-danger"></span>
-                </div>
+    <div class="createEditMovieBox">
+        <form asp-action="CreateMovie">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                <div class="form-group">
-                    <label asp-for="movie.SubTitle" class="control-label">Undertitel</label>
-                    <input asp-for="movie.SubTitle" class="form-control" />
-                    <span asp-validation-for="movie.SubTitle" class="text-danger"></span>
-                </div>
+            <div class="form-group">
+                <label asp-for="movie.Title" class="control-label">Titel</label>
+                <input asp-for="movie.Title" class="form-control" />
+                <span asp-validation-for="movie.Title" class="text-danger"></span>
+            </div>
 
-                <div class="form-group">
-                    <label asp-for="movie.Genre" class="control-label">Genre</label>
-                    <input asp-for="movie.Genre" class="form-control" />
-                    <span asp-validation-for="movie.Genre" class="text-danger"></span>
-                </div>
+            <div class="form-group">
+                <label asp-for="movie.SubTitle" class="control-label">Undertitel</label>
+                <input asp-for="movie.SubTitle" class="form-control" />
+                <span asp-validation-for="movie.SubTitle" class="text-danger"></span>
+            </div>
 
-                <div class="form-group">
-                    <label asp-for="movie.ReleaseDate" class="control-label">Release datum</label>
-                    <input type="date" asp-for="movie.ReleaseDate" class="form-control" />
-                    <span asp-validation-for="movie.ReleaseDate" class="text-danger"></span>
-                </div>
+            <div class="form-group">
+                <label asp-for="movie.Genre" class="control-label">Genre</label>
+                <input asp-for="movie.Genre" class="form-control" />
+                <span asp-validation-for="movie.Genre" class="text-danger"></span>
+            </div>
 
-                <div class="form-group">
-                    <label asp-for="movie.Rating" class="control-label">Rating</label>
-                    <input asp-for="movie.Rating" class="form-control" />
-                    <span asp-validation-for="movie.Rating" class="text-danger"></span>
-                </div>
+            <div class="form-group">
+                <label asp-for="movie.ReleaseDate" class="control-label">Release datum</label>
+                <input type="date" asp-for="movie.ReleaseDate" class="form-control" />
+                <span asp-validation-for="movie.ReleaseDate" class="text-danger"></span>
+            </div>
 
-                <div class="form-group">
-                    <label asp-for="movie.Duration" class="control-label">Speltid</label>
-                    <input asp-for="movie.Duration" class="form-control" />
-                    <span asp-validation-for="movie.Duration" class="text-danger"></span>
-                </div>
+            <div class="form-group">
+                <label asp-for="movie.Rating" class="control-label">Rating</label>
+                <input asp-for="movie.Rating" class="form-control" />
+                <span asp-validation-for="movie.Rating" class="text-danger"></span>
+            </div>
 
-                <div class="form-group">
-                    <label asp-for="movie.Description" class="control-label">Beskrivning</label>
-                    <textarea asp-for="movie.Description" rows="5" class="form-control"></textarea>
-                    <span asp-validation-for="movie.Description" class="text-danger"></span>
-                </div>
+            <div class="form-group">
+                <label asp-for="movie.Duration" class="control-label">Speltid</label>
+                <input asp-for="movie.Duration" class="form-control" />
+                <span asp-validation-for="movie.Duration" class="text-danger"></span>
+            </div>
 
-                <div class="form-group">
-                    <label asp-for="movie.PosterFilename" class="control-label">Filnamn för kvadratisk poster</label>
-                    <input asp-for="movie.PosterFilename" class="form-control" />
-                    <span asp-validation-for="movie.PosterFilename" class="text-danger"></span>
-                </div>
+            <div class="form-group">
+                <label asp-for="movie.Description" class="control-label">Beskrivning</label>
+                <textarea asp-for="movie.Description" rows="5" class="form-control"></textarea>
+                <span asp-validation-for="movie.Description" class="text-danger"></span>
+            </div>
 
-                <div class="form-group">
-                    <label asp-for="movie.PosterFilenameWide" class="control-label">Filnamn för bred poster</label>
-                    <input asp-for="movie.PosterFilenameWide" class="form-control" />
-                    <span asp-validation-for="movie.PosterFilenameWide" class="text-danger"></span>
-                </div>
+            <div class="form-group">
+                <label asp-for="movie.PosterFilename" class="control-label">Filnamn för kvadratisk poster</label>
+                <input asp-for="movie.PosterFilename" class="form-control" />
+                <span asp-validation-for="movie.PosterFilename" class="text-danger"></span>
+            </div>
+                
+            <div class="form-group">
+                <label asp-for="movie.PosterFilenameWide" class="control-label">Filnamn för bred poster</label>
+                <input asp-for="movie.PosterFilenameWide" class="form-control" />
+                <span asp-validation-for="movie.PosterFilenameWide" class="text-danger"></span>
+            </div>
+                
+            <!--
+            <div class="form-group">
+                <label asp-for="PosterImage" class="control-label">Filnamn för kvadratisk posterbild</label>
+                <input type="file" asp-for="PosterImage" class="form-control" />
+                <span asp-validation-for="PosterImage" class="text-danger"></span>
+            </div>
+            -->
 
 
-                <div class="form-group">
-                    <label asp-for="movie.FromCountry" class="control-label">Land</label>
-                    <input asp-for="movie.FromCountry" class="form-control" />
-                    <span asp-validation-for="movie.FromCountry" class="text-danger"></span>
-                </div>
+            <div class="form-group">
+                <label asp-for="movie.FromCountry" class="control-label">Land</label>
+                <input asp-for="movie.FromCountry" class="form-control" />
+                <span asp-validation-for="movie.FromCountry" class="text-danger"></span>
+            </div>
 
-                <div class="form-group">
-                    <label asp-for="movie.Director" class="control-label">Regissör</label>
-                    <input asp-for="movie.Director" class="form-control" />
-                    <span asp-validation-for="movie.Director" class="text-danger"></span>
-                </div>
+            <div class="form-group">
+                <label asp-for="movie.Director" class="control-label">Regissör</label>
+                <input asp-for="movie.Director" class="form-control" />
+                <span asp-validation-for="movie.Director" class="text-danger"></span>
+            </div>
 
-                <div class="form-group">
-                    <label asp-for="actorIds" class="control-label">Skådespelare</label>                
-                    <select asp-for="actorIds" asp-items="@Model.actorListItems" class="form-control" rows=10 multiple></select>
-                    <span asp-validation-for="actorIds" class="text-danger"></span>
-                </div>
+            <div class="form-group">
+                <label asp-for="actorIds" class="control-label">Skådespelare</label>                
+                <select asp-for="actorIds" asp-items="@Model.actorListItems" class="form-control" rows=10 multiple></select>
+                <span asp-validation-for="actorIds" class="text-danger"></span>
+            </div>
 
-                <div class="form-group">
-                    <label asp-for="movie.Language" class="control-label">Språk</label>
-                    <input asp-for="movie.Language" class="form-control" />
-                    <span asp-validation-for="movie.Language" class="text-danger"></span>
-                </div>
+            <div class="form-group">
+                <label asp-for="movie.Language" class="control-label">Språk</label>
+                <input asp-for="movie.Language" class="form-control" />
+                <span asp-validation-for="movie.Language" class="text-danger"></span>
+            </div>
 
-                <div class="form-group">
-                    <label asp-for="movie.Budget" class="control-label">Budget</label>
-                    <input asp-for="movie.Budget" class="form-control" />
-                    <span asp-validation-for="movie.Budget" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Skapa" class="btn btn-primary" />
-                </div>
-            </form>
+            <div class="form-group">
+                <label asp-for="movie.Budget" class="control-label">Budget</label>
+                <input asp-for="movie.Budget" class="form-control" />
+                <span asp-validation-for="movie.Budget" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Skapa" class="btn btn-primary" />
+            </div>
+        </form>
+        <div>
+            <a asp-action="Index"><button class="button green">Tillbaka till filmlistan</button></a>
         </div>
-    </div>
-
-    <div>
-        <a asp-action="Index"><button class="button green">Tillbaka till filmlistan</button></a>
     </div>
 </div>

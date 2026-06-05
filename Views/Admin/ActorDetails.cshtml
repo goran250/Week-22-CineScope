@@ -6,9 +6,8 @@
 <div class="adminPage">
     <a asp-action="Index" style="text-decoration: none"><h1 class="pageHeading blueText">Admin</h1></a>
     <h2 class="subPageHeading">Detaljer</h2>
-
-    <div class="actorDetails">
-        <hr />
+    <hr />
+    <div class="actorDetails">        
         <div><img src="~/images/@Model.PictureFilename" alt="Bild" width="300px" /></div>
         <br />
         <dl class="row">
@@ -32,9 +31,9 @@
                 }
             </dd>
         </dl>
-    </div>
-    <div>
-        <a asp-action="EditActor" asp-route-id="@Model?.Id"><button class="button">Ändra</button></a>
-        <a asp-action="AllActors"><button class="button green">Tillbaka till skådespelarlistan</button></a>
-    </div>
+        <div>
+            <a asp-action="EditActor" asp-route-id="@Model?.Id"><button class="button">Ändra</button></a>
+            <a asp-action="AllActors"><button class="button green">Tillbaka till skådespelarlistan</button></a>
+        </div>
+    </div>  
 </div>

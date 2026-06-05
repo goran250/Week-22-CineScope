@@ -66,7 +66,7 @@ body {
 }
 
 .adminLink {
-    margin-right: 50px;
+    margin-left: 50px;
 }
 
 .button {
@@ -114,6 +114,16 @@ body {
     max-width: 800px;
     margin-bottom: 30px;
 }
+
+.homePage .actorDetailsImg {
+    max-width: 400px;
+}
+
+.actorDetails {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
 
 .textStart {
     padding-right: 15px;
@@ -249,10 +259,19 @@ hr {
     margin-left: 40px;
 }
 
+.createEditMovieBox {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.actorDetailsText {
+    margin-top: 20px;
+}
+
 
 @media (min-width: 576px) {
     .actorDetails .col-sm-2 {
-        width: 12% !important;
+        width: 16% !important;
     }
 
     .actorDetails .col-sm-10 {
@@ -306,6 +325,10 @@ hr {
         clear: both;
         width: 100%;
     }
+
+    .detailsImg {
+        max-width: 100%  ;        
+    }
 }
 
 
@@ -317,6 +340,11 @@ hr {
     .table td.paddingTop .button {
         margin-bottom: 8px;
     }
+
+    .detailsImg {
+        max-width: 100%;
+    }
+
 }
 
 @media (max-width: 600px) {
@@ -360,6 +388,10 @@ hr {
         width: 100%;
     }
 
+    .adminLink {
+        margin-left: 0;
+    }
+
     .adminIndex {
         padding: 0;
     }
@@ -369,7 +401,11 @@ hr {
     }
 }
 
-
+@media (max-width: 460px) {
+    .homePage .actorDetailsImg {
+        width: 100%;
+    }
+}
     /* Define default colours 
 --text-colour: #000;
 --bg-color: #fff;

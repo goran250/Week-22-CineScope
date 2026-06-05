@@ -21,21 +21,6 @@ namespace CineScope.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ActorMovie", b =>
-                {
-                    b.Property<int>("ActorsId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MoviesId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ActorsId", "MoviesId");
-
-                    b.HasIndex("MoviesId");
-
-                    b.ToTable("ActorMovie", (string)null);
-                });
-
             modelBuilder.Entity("CineScope.Models.Actor", b =>
                 {
                     b.Property<int>("Id")
@@ -46,11 +31,13 @@ namespace CineScope.Migrations
 
                     b.Property<string>("Country")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("PictureFilename")
                         .IsRequired()
@@ -59,7 +46,7 @@ namespace CineScope.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Actors", (string)null);
+                    b.ToTable("Actors");
                 });
 
             modelBuilder.Entity("CineScope.Models.ActorMovie", b =>
@@ -78,7 +65,7 @@ namespace CineScope.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ActorsMovies", (string)null);
+                    b.ToTable("ActorsMovies");
                 });
 
             modelBuilder.Entity("CineScope.Models.Movie", b =>
@@ -88,6 +75,9 @@ namespace CineScope.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("ActorId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Budget")
                         .HasColumnType("nvarchar(max)");
@@ -147,22 +137,21 @@ namespace CineScope.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Movies", (string)null);
+                    b.HasIndex("ActorId");
+
+                    b.ToTable("Movies");
                 });
 
-            modelBuilder.Entity("ActorMovie", b =>
+            modelBuilder.Entity("CineScope.Models.Movie", b =>
                 {
                     b.HasOne("CineScope.Models.Actor", null)
-                        .WithMany()
-                        .HasForeignKey("ActorsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany("Movies")
+                        .HasForeignKey("ActorId");
+                });
 
-                    b.HasOne("CineScope.Models.Movie", null)
-                        .WithMany()
-                        .HasForeignKey("MoviesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+            modelBuilder.Entity("CineScope.Models.Actor", b =>
+                {
+                    b.Navigation("Movies");
                 });
 #pragma warning restore 612, 618
         }

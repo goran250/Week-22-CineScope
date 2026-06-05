@@ -25,6 +25,8 @@ namespace CineScope.Models.ViewModels
             this.genrerListItems = genrerListItems;
         }
 
+    
+
         public AdminCrud(Movie movie, List<SelectListItem> actorListItems, string type)
         {
             this.movie = movie;
