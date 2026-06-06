@@ -35,6 +35,7 @@ namespace CineScope.Models
         public string? FrameNbr { get; set; }
         [NotMapped] // Används bara på startsidan för att sätta css-klasser på frames i bildspelet
         public string? FrameClasses { get; set; }
+        
         /**
         [NotMapped]
         public List<Actor>? Actors;        

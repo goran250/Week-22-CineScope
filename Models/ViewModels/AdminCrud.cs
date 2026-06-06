@@ -18,14 +18,13 @@ namespace CineScope.Models.ViewModels
 
         public string genre { get; set; }
 
+        // public IFormFile posterImage { get; set; }
 
         public AdminCrud(List<Movie> movies, List<SelectListItem> genrerListItems)
         {
             this.movies = movies;
             this.genrerListItems = genrerListItems;
         }
-
-    
 
         public AdminCrud(Movie movie, List<SelectListItem> actorListItems, string type)
         {

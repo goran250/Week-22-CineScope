@@ -12,7 +12,7 @@
         Alla dessa skådespelare förekommer i filmerna i systemet
     </p>
 
-    <table class="table">
+    <table class="table actorsTable">
         <thead>
             <tr>
                 <th></th>
@@ -24,7 +24,7 @@
         <tbody>
             @foreach (var item in Model) {
                 <tr>
-                    <td><img src="~/images/@item.PictureFilename" alt="Poster" width="60" /></td>
+                    <td class="firstColumn"><img src="~/images/@item.PictureFilename" alt="Poster" width="60" /></td>
                     <td style="padding-top: 25px;">
                         @Html.DisplayFor(model => item.Name)
                     </td>

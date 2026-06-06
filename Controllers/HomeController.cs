@@ -519,6 +519,8 @@ namespace CineScope.Controllers
             actor.Name = "Staffan Ling";
             actor.Country = "Sverige";
             actor.PictureFilename = "staffan-ling.webp";
+           
+            cineScopeDbContext.Actors.Add(actor);
 
             actor = new Actor();
             actor.Name = "Vanessa Lee Chester";
@@ -532,20 +534,28 @@ namespace CineScope.Controllers
             actor.Country = "Sverige";
             actor.PictureFilename = "gosta-ekman.webp";
 
+            cineScopeDbContext.Actors.Add(actor);
+
             actor = new Actor();
             actor.Name = "Ulf Brunnberg";
             actor.Country = "Sverige";
             actor.PictureFilename = "ulf-brunnberg.webp";
+
+            cineScopeDbContext.Actors.Add(actor);
 
             actor = new Actor();
             actor.Name = "Nils Brandt";
             actor.Country = "Sverige";
             actor.PictureFilename = "nils-brandt.webp";
 
+            cineScopeDbContext.Actors.Add(actor);
+
             actor = new Actor();
             actor.Name = "Siw Malmkvist";
             actor.Country = "Sverige";
             actor.PictureFilename = "siw-malmkvist.webp";
+
+            cineScopeDbContext.Actors.Add(actor);
 
             actor = new Actor();
             actor.Name = "Sigourney Weaver";

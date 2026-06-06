@@ -101,19 +101,22 @@ namespace CineScope.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateMovie([Bind("Id,Title,SubTitle,Genre,ReleaseDate,Rating,Duration,Description,PosterFilename," +
-                                               "PosterFilenameWide,FromCountry,Director,Actors,Language,Budget")] Movie movie, List<int> actorIds)
+                           "PosterFilenameWide,FromCountry,Director,Actors,Language,Budget")] Movie movie, List<int> actorIds)
+                           // "PosterFilenameWide,FromCountry,Director,Actors,Language,Budget")] Movie movie, List<int> actorIds, IFormFile posterImage)
         {
-            /**
-            if (PosterImage != null && PosterImage.Length > 0)
+            /** Kod för filuppladdning, men den fungerar inte.
+            if (posterImage != null && posterImage.Length > 0)
             {
-                string uploadPath = "~/images/";
-                string filePath = Path.Combine(uploadPath, PosterImage.FileName);
+                string filePath = "~/images/" + posterImage.FileName;
 
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
-                    await PosterImage.CopyToAsync(stream);
+                    await posterImage.CopyToAsync(stream);
                 }
-            }*/
+
+                movie.PosterFilename = posterImage.FileName;
+            }
+            */
 
             if (ModelState.IsValid)
             {

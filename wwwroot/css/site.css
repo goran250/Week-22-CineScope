@@ -145,6 +145,7 @@ body {
     max-width: 1030px;
     margin-left: 55px;
     margin-right: 55px;
+    float: left;
 }
 
 .arrowButton {
@@ -180,7 +181,6 @@ body {
 tbody, td, tfoot, th, thead, tr {
     border-color: var(--border-color);
 }
-
 
 .desriptionTR td {
     border-top-color: #fff;
@@ -386,6 +386,16 @@ hr {
 
     .movieCard {
         width: 100%;
+    }
+
+    /** Första kolumnen i tabellen på AllActors i home och admin. */
+    .firstColumn {
+        padding-left: 0!important;
+    }
+
+    .actorsTable td {
+        padding-left: 5px;
+        padding-right: 5px;
     }
 
     .adminLink {

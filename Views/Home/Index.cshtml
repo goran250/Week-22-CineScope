@@ -21,7 +21,7 @@
             </div>
         }       
     </div>
-    
+
     <div class="button-row">
         <button onclick="changeFrame(-1)" class="arrowButton"><img src="~/images/leftArrow.webp" /></button>
         <button onclick="changeFrame(1)" class="arrowButton right"><img src="~/images/rightArrow.webp" /></button>
@@ -56,6 +56,8 @@
 
 <script>
     document.getElementById("mainContainer").classList.add("minimalPadding");
+    
+    let currentDotId = "one";
 
     const frames = ["frame1", "frame2", "frame3", "frame4"];
     let currentIndex = 0;
@@ -75,4 +77,6 @@
         document.getElementById(frames[oldIndex]).classList.remove("visible");
         document.getElementById(frames[currentIndex]).classList.add("visible");
     }
+
+    
 </script>
