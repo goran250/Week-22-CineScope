@@ -30,13 +30,18 @@ namespace CineScope.Models
         [MaxLength(50)]
         public string? Language { get; set; }
         public string? Budget { get; set; }
+        
+        [NotMapped] // Används bara på startsidan för numrera frames i bildspelet
+        public string? FrameNbr { get; set; }
+        [NotMapped] // Används bara på startsidan för att sätta css-klasser på frames i bildspelet
+        public string? FrameClasses { get; set; }
         /**
         [NotMapped]
         public List<Actor>? Actors;        
         [NotMapped]
         public List<int>? ActorIds;
         */
-       
+
         public Movie() {}
     }
 }

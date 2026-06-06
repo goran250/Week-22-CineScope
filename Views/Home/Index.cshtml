@@ -4,67 +4,22 @@
 }
 
 <div class="homeIndex">
-    <div class="slideshow-container">
-   
-        <div id="frame1" class="hidden visible">
-            <img src="~/images/sallskapsresan-bred.webp" class="imgStart" />
-            <div class="textStart">
-                <h2>Sällskapsresan</h2>
-                <p><b>-eller finns det svenskt kaffe på grisfesten?</b></p>
-                <p>
-                    Sällskapsresan, eller finns det svenskt kaffe på grisfesten,
-                    är en svensk komedifilm från 1980 i regi av Lasse Åberg och Peter Hald. I huvudrollerna ses Lasse Åberg och
-                    Jon Skolmen. Det är den första filmen i en serie om och med antihjälten Stig-Helmer Olsson.
-                </p>
-                <p><b><span style="margin-right: 20px;">1980</span>Komedi</b><p/>
-                    <a asp-action="MovieDetails" asp-route-id="1"><button class="button green">Läs mer</button></a>
+    <div class="slideshow-container">         
+        @foreach (Movie movie in Model.topMovies)
+        {
+            <div id="@movie.FrameNbr" class="@movie.FrameClasses">
+                <img src="~/images/@movie.PosterFilenameWide" class="imgStart" />
+                <div class="textStart">
+                    <h2>@movie.Title</h2>
+                    <p><b>@movie.SubTitle</b></p>
+                    <p>
+                        @movie.Description
+                    </p>
+                    <p><b><span style="margin-right: 20px;">@movie.ReleaseDate.Year</span>@movie.Genre</b></p>
+                    <a asp-action="MovieDetails" asp-route-id="@movie.Id"><button class="button green">Läs mer</button></a>
+                </div>
             </div>
-        </div>    
-  
-
-        <div id="frame2" class="hidden">
-            <img src="~/images/snowroller-bred.webp" class="imgStart" />
-            <div class="textStart">
-                <h2>Snowroller</h2>
-                <p><b>Sällskapsresan 2</b></p>
-                <p>
-                   Sällskapsresan 2 – Snowroller är en svensk komedifilm från 1985 i regi av Lasse Åberg och Peter Hald. 
-                   I huvudrollerna ses Lasse Åberg och Jon Skolmen. Stig-Helmer Olsson reser tillsammans med Ole Bramserud
-                   till schweiziska Alperna för skidsemester, i orten Kirchberg. På resan får de sällskap med ett antal ...
-                </p>
-                <p><b><span style="margin-right: 20px;">1985</span>Komedi</b></p>
-                <a asp-action="MovieDetails" asp-route-id="2"><button class="button green">Läs mer</button></a>
-             </div>           
-        </div>       
-
-        <div id="frame3" class="hidden">
-            <img src="~/images/jurassic-park-bred.webp" class="imgStart" />
-            <div class="textStart">
-                <h2>Jurassic park</h2>
-                <p>
-                    Jurassic Park är en amerikansk science fiction-äventyrsfilm från 1993, regisserad av Steven Spielberg
-                    med manus skrivet av Michael Crichton och David Koepp, baserad på Crichtons roman Urtidsparken från 1990. 
-                    Filmen, med Sam Neill, Laura Dern, Jeff Goldblum och Richard Attenborough i huvudrollerna, ...
-                </p>
-                <p><b><span style="margin-right: 20px;">1985</span>Science Fiction - Äventyr</b><p />
-                <a asp-action="MovieDetails" asp-route-id="3"><button class="button green">Läs mer</button></a>
-            </div>
-        </div>
-
-        <div id="frame4" class="hidden">
-            <img src="~/images/avatar-1-bred.webp" class="imgStart" />
-            <div class="textStart">
-                <h2>Avatar</h2>
-                <p>
-                    Avatar är en amerikansk science fiction-film, regisserad och producerad James Cameron.Året är 2154 och människan
-                    har tvingats kolonisera och exploatera en ny planet (måne) för att inte gå under på den gamla. Med hjälp av 
-                    gigantiska ”hell trucks”, förvillande lika de väldiga maskiner som i dagbrott bryter brunkol i Tyskland och de 
-                    jättelastbilar som ...
-                </p>
-                <p><b><span style="margin-right: 20px;">2009</span>Science Fiction</b><p />
-                <a asp-action="MovieDetails" asp-route-id="12"><button class="button green">Läs mer</button></a>
-            </div>            
-        </div>        
+        }       
     </div>
     
     <div class="button-row">

@@ -16,7 +16,7 @@ namespace CineScope.Controllers
             cineScopeDbContext = context;
 
             // Denna metoden lägger till data i en tom databas. Den körs bara en gång när databasen är tom.
-            if (cineScopeDbContext.Movies.Any() == false)
+            if (!cineScopeDbContext.Movies.Any() && !cineScopeDbContext.Actors.Any() && !cineScopeDbContext.ActorsMovies.Any())
             {
                 AddData();
             }
@@ -44,6 +44,8 @@ namespace CineScope.Controllers
                 movies = movies.Where(m => m.Title.Contains(searchValue)).ToList();
             }
 
+            List<Movie> topMovies = GetTopMovies(movies);
+
             movies = movies.OrderBy(m => m.Title).ToList();
 
 
@@ -51,8 +53,6 @@ namespace CineScope.Controllers
             {
                 movies = movies.Where(m => m.Genre == genre).ToList();
             }
-
-            List<Movie> topMovies = GetTopMovies(movies);
 
             HomeIndex homeIndex = new HomeIndex(movies, topMovies, genrerListItems);
             homeIndex.specialString = "<div id='frame1' class='hidden visible'>";
@@ -134,11 +134,26 @@ namespace CineScope.Controllers
             idList.Add(1);
             idList.Add(2);
             idList.Add(3);
-            idList.Add(12);
-            foreach (Movie movie in movies)
+            idList.Add(8);
+
+            int frameNbr = 1;
+            for (int i = 0; i< movies.Count; i++)
             {
-                if (idList.Contains(movie.Id))
-                    topMovies.Add(movie);
+                if (idList.Contains(movies[i].Id))
+                {
+                    movies[i].FrameNbr = "frame" + frameNbr;
+                    frameNbr++;
+                    
+                    if (i == 0)
+                        movies[i].FrameClasses = "hidden visible";
+                    else
+                        movies[i].FrameClasses = "hidden";
+
+                    if (movies[i].Description.Length >= 350)
+                        movies[i].Description = movies[i].Description.Substring(0, 350) + "...";
+                    
+                    topMovies.Add(movies[i]);
+                }
             }
             
             return topMovies;

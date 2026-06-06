@@ -308,15 +308,13 @@ hr {
         }
 
     .button-row {
-        top: -140px;
+        top: -360px;
     }
 
     .movieCard {
         width: 50%;
     }
-}
 
-@media (max-width: 840px) {
     .imgStart {
         width: 100%;
     }
@@ -325,7 +323,9 @@ hr {
         clear: both;
         width: 100%;
     }
+}
 
+@media (max-width: 840px) {
     .detailsImg {
         max-width: 100%  ;        
     }
