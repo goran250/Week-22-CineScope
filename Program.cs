@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 namespace CineScope
 {
@@ -35,7 +36,39 @@ namespace CineScope
                 pattern: "{controller=Home}/{action=Index}/{id?}")
                 .WithStaticAssets();
 
+            // This method only runs once when the database is empty. Ej testad
+            // var result = RunMigrationsAndAddData(app);
+
             app.Run();
+        }
+
+        private static async Task<IActionResult> RunMigrationsAndAddData(WebApplication app)
+        {
+            using (var scope = app.Services.CreateScope())
+            {
+                var appDbContext = scope.ServiceProvider.GetRequiredService<CineScopeDbContext>();
+
+                // appDbContext.Database.Migrate();
+
+                if (!appDbContext.Movies.Any())
+                {
+                    var scriptPath = "./Arkiv/CineScopeDB.data.sql";
+
+                    var sqlScript = File.ReadAllText(scriptPath);
+
+                    using (var connection = appDbContext.Database.GetDbConnection())
+                    {
+                        connection.Open();
+                        using (var command = connection.CreateCommand())
+                        {
+                            command.CommandText = sqlScript;
+                            await command.ExecuteNonQueryAsync();
+                        }
+                    }
+                }
+            }
+
+            return null;
         }
     }
 }

@@ -120,7 +120,6 @@ namespace CineScope.Controllers
 
             if (ModelState.IsValid)
             {
-
                 cineScopeDbContext.Add(movie);
                 await cineScopeDbContext.SaveChangesAsync();
 
